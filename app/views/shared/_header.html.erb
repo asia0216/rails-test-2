@@ -1,17 +1,20 @@
-<h3><%= link_to"header(ロゴを使う)", root_path %></h3>
+<h3><%= link_to"header(ロゴを使う?)", root_path %></h3>
 
-<div class="dropdown">
-  <% if current_user.present? %>
-  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    <%= current_user.email %>
-  </button>
-    <%= link_to"施設の新規登録", "#" %>
-    <%= link_to"予約済み一覧", "#" %>
-    <%= link_to"登録済み一覧", "#" %>
-    <%= link_to"アカウント設定", "#" %>
-    <%= link_to"ログアウト",  destroy_user_session_path %>
-  <% else %>
-    <%= link_to"ログイン", new_user_session_path %>
-    <%= link_to"新規登録", new_user_registration_path %>
-  <% end %>
-</div>
+<% if current_user.present? %>
+  <div class="dropdown">
+    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <%= current_user.username %>
+    </button>
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+      <%= link_to"施設の新規登録", "#", class: "dropdown-itme" %><br>
+      <%= link_to"予約済み一覧", "#", class: "dropdown-itme" %><br>
+      <%= link_to"登録済み一覧", "#", class: "dropdown-itme" %><br>
+      <%= link_to"アカウント設定", "#", class: "dropdown-itme" %><br>
+      <%= link_to"ログアウト",  destroy_user_session_path, class: "dropdown-itme", method: :delete %>
+    </div>
+  </div>
+  <!--理由は全くわからないけど、表示したら「header(ロゴを使う？)」部分を押してからじゃないとドロップダウンが反応しない-->
+<% else %>
+  <%= link_to"ログイン", new_user_session_path %>
+  <%= link_to"新規登録", new_user_registration_path %>
+<% end %>
