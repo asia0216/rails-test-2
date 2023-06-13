@@ -1,8 +1,17 @@
-<h3>header</h3>
+<h3><%= link_to"header(ロゴを使う)", root_path %></h3>
 
-<% if current_user.present? %>
-  <%= link_to"ログアウト",  destroy_user_session_path %>
-<% else %>
-  <%= link_to"ログイン", new_user_session_path %>
-  <%= link_to"新規登録", new_user_registration_path %>
-<% end %>
+<div class="dropdown">
+  <% if current_user.present? %>
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <%= current_user.email %>
+  </button>
+    <%= link_to"施設の新規登録", "#" %>
+    <%= link_to"予約済み一覧", "#" %>
+    <%= link_to"登録済み一覧", "#" %>
+    <%= link_to"アカウント設定", "#" %>
+    <%= link_to"ログアウト",  destroy_user_session_path %>
+  <% else %>
+    <%= link_to"ログイン", new_user_session_path %>
+    <%= link_to"新規登録", new_user_registration_path %>
+  <% end %>
+</div>

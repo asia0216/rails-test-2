@@ -9,6 +9,8 @@ class DeviseCreateUsers < ActiveRecord::Migration[6.1]
 
       t.string :name
       t.text :introduce
+      # この2つは後付けでやったけど、意味がなさそう
+      # 素直にadd用のマイグレーションファイルを作った方が早い見たい
 
       ## Recoverable
       t.string   :reset_password_token
