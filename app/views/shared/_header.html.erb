@@ -1,4 +1,4 @@
-<h3><%= link_to"header(ロゴを使う?)", root_path %></h3>
+<h3><%= link_to"homeへ行くリンク(ロゴを使う?)", root_path %></h3>
 
 <% if current_user.present? %>
   <div class="dropdown">
@@ -13,7 +13,7 @@
       <%= link_to"ログアウト",  destroy_user_session_path, class: "dropdown-itme", method: :delete %>
     </div>
   </div>
-  <!--理由は全くわからないけど、表示したら「header(ロゴを使う？)」部分を押してからじゃないとドロップダウンが反応しない-->
+  <!--理由は全くわからないけど、「root_path」部分を押してからじゃないとドロップダウンが反応しない-->
 <% else %>
   <%= link_to"ログイン", new_user_session_path %>
   <%= link_to"新規登録", new_user_registration_path %>
